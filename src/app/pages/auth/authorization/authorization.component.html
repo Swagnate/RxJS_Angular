@@ -1,0 +1,24 @@
+<div class="d-flex flex-column col-6 m-auto authorisation-input-wrap">
+  <div>
+    <span class="mx-3">{{loginText}}</span>
+    <input type="text" class="mt-3" pInputText [ngClass]="{'input-error': !login}" [(ngModel)]="login"/>
+  </div>
+  <div>
+    <span class="mx-3">{{pswText}}</span>
+    <input type="text" class="mt-3" pInputText [ngClass]="{'input-error': !psw}" [(ngModel)]="psw"/>
+  </div>
+  <div *ngIf="showCardNumber">
+    <span class="mx-3">&nbsp;</span>
+    <p-checkbox (onChange)="vipStatusSelected()" class=" mt-3 " label="VIP-клиент" [(ngModel)]="selectedValue" [binary]="true"></p-checkbox>
+    <div *ngIf="selectedValue">
+      <span class="mx-3">Номер карты VIP-клиента</span>
+      <input type="text" class="mt-3" pInputText [(ngModel)]="cardNumber"/>
+    </div>
+  </div>
+  <div>
+    <span class="mx-3">&nbsp;</span>
+    <button (click)="onAuth($event)" type="button" class="btn btn-success mt-3">{{authTextButton}}</button>
+  </div>
+</div>
+
+
